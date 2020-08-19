@@ -50,12 +50,15 @@ def orderHistory(request):
     current_user = User.objects.get(id = request.session['user_id'])
     context = {
         'user' : current_user,
+        'orders': current_user.taco_history.all()
     }
     return render(request, 'orderHistory.html', context)
 
 def favorites(request):
+    current_user = User.objects.get(id = request.session['user_id'])
     context = {
-        'user' : User.objects.get(id = request.session['user_id']),
+        'user' : current_user,
+        'favorites': current_user.favorite_taco.all()
     }
     return render(request, 'favorites.html', context)
 
@@ -80,6 +83,7 @@ def taco(request):
     user = User.objects.get(id=request.session['user_id'])
     if request.method == 'POST':
         this_taco = Taco.objects.filter(id=request.POST['id'])
+        user.taco_history.add(this_taco[0])
 
         if not this_taco:
             return redirect('/dashboard')
@@ -88,7 +92,6 @@ def taco(request):
             quantity = int(request.POST['quantity'])
             total_cost = quantity*(float(this_taco[0].price))
             myOrder =Order.objects.create(quantity_ordered = quantity, total_price =total_cost,ordered_by = user)
-            user.tacos_ordered = this_taco[0]
             request.session['order_id'] = myOrder.id
             return redirect('/checkout')
     else: 
