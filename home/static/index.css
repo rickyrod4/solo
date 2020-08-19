@@ -1,0 +1,18 @@
+.col h2{
+    margin-left: 38%;
+}
+
+h1 {
+    margin-left: 30%;
+}
+
+body{
+    background-color: salmon;
+}
+button {
+    margin-left: 35%;
+}
+.col {
+    border: 1px solid black;
+    border-radius: 3px;
+}

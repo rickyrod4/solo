@@ -1,0 +1,29 @@
+body {
+    margin: 10px;
+}
+.row label {
+    margin-left: 25px;
+
+}
+h3 {
+    display: inline-block;
+    margin: 10px 29%;
+    color: cadetblue;
+}
+.titles{
+    display: inline-block;
+    margin: 10px 30%;
+}
+#tortillas {
+    display: inline-block;
+    margin: 10px 24%;
+}
+button {
+    margin: 10px 44%;
+}
+h1 {
+    margin-left: 20%;
+}
+h1 a {
+    margin-left: 25%;
+}
