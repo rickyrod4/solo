@@ -47,8 +47,9 @@ def myAccount(request):
     return render(request, 'updateAccount.html', context)
 
 def orderHistory(request):
+    current_user = User.objects.get(id = request.session['user_id'])
     context = {
-        'user' : User.objects.get(id = request.session['user_id']),
+        'user' : current_user,
     }
     return render(request, 'orderHistory.html', context)
 
