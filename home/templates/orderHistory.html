@@ -44,7 +44,7 @@
         </div>
     </div>
     {% for order in orders %}
-    <h1>{{ order.taco_type }} -  ${{ order.price }} {{ user.tacos_ordered.quantity_ordered }}</h1>
+    <h1>{{ order.taco_type }} -  ${{ order.price }} {{ order.quantity_ordered }}</h1>
     {% endfor %}
 
 </body>
