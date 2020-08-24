@@ -68,7 +68,6 @@ def checkout(request):
         'user' : User.objects.get(id = request.session['user_id']),
         'taco' : Taco.objects.get(id = request.session['taco_id']),
         'order' : Order.objects.get(id = request.session['order_id'])
-
     }
     return render(request, 'checkout.html', context)
 
