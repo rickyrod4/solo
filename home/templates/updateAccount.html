@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'updateAccount.css' %}">
 </head>
 <body>
-    <div class="container">
+    <div class="container bg-light">
         <div class="jumbotron">
             <h1>Hello, {{ user.first_name }}! Let's Update Your Account<a href="/logout" class="btn btn-outline-primary">Logout</a></h1>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,20 +43,15 @@
                 </div>
             </nav>
         </div>
-        <div class="row">
+        <div class="row border" id="info">
             <h2>Your Information</h2>
-            <br class="row" id="info">
-                <div class="form-group"><h5><span>First Name:</span> {{ user.first_name }}</h5></div>
-                <br>
-                <div class="form-group"><h5><span>Last Name:</span> {{ user.last_name }}</h5></div>
-                <br>
-                <div class="form-group"><h5><span>Email:</span> {{ user.email }}</h5></div>
-                <br>
-                <div class="form-group"><h5><span>Account Number:</span> {{ user.id }}</h5></div>
-                <br>
+                <div class=""><h5><span>First Name:</span> {{ user.first_name }}</h5></div>
+                <div class=""><h5><span>Last Name:</span> {{ user.last_name }}</h5></div>
+                <div class=""><h5><span>Email:</span> {{ user.email }}</h5></div>
+                <div class=""><h5><span>Account Number:</span> {{ user.id }}</h5></div>
         </div>
         <div class="row">
-            <h2>Update Your Account</h2>
+            <h2 id="account">Update Your Account</h2>
             {% if messages %}
             <ul class="messages">    
                 {% for message in messages %}    
@@ -65,7 +60,7 @@
             </ul>
             {% endif %}
         </div>
-        <div class="row">
+        <div class="row" id="content">
             <form action="/updateInfo" method="POST">
                 {% csrf_token %}
                 <div class="form-group">

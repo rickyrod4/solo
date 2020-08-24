@@ -1,14 +1,26 @@
-#info h5{
-    margin-right: 35%;
+h2{
+    margin-left: 38%;
+    display: inline-block;
 }
 
 span {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    color: black;
 }
 h1 {
-    margin-left: 15%;
+    margin-left: 7%;
 }
 h1 a {
     margin-left: 20%;
+}
+#info div {
+    display: block;
+    margin-left: 38%;
+}
+#content form {
+    margin-left: 38%;
+}
+h5 {
+    color: dodgerblue;
 }

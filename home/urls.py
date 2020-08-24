@@ -13,5 +13,8 @@ urlpatterns = [
     path('updateInfo', views.updateInfo),
     path('taco', views.taco),
     path('logout',views.logout),
-    path('success',views.success)
+    path('success',views.success),
+    path('favoriteTaco/<int:taco_id>',views.favoriteTaco),
+    path('unfavorite/<int:taco_id>',views.unfavorite),
+    path('reOrder', views.reOrder)
 ]

@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'orderHistory.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Hello, {{ user.first_name }}! Let's Take A Look At Your Order History!<a href="/logout" class="btn btn-outline-primary">Logout</a></h1>
+            <h1>Hello, {{ user.first_name }}! These Are Your Recently Purchased Tacos<a href="/logout" class="btn btn-outline-primary">Logout</a></h1>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/dashboard">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +44,28 @@
             </nav>
         </div>
     </div>
-    {% for order in orders %}
-    <h1>{{ order.taco_type }} -  ${{ order.price }} {{ order.quantity_ordered }}</h1>
-    {% endfor %}
+
+    <table class="table-dark">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Taco</th>
+          <th>Price</th>
+          <th>Favorite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for order in orders %}
+          <td>{{ order.id }}</td>
+          <td>{{ order.taco_type }}</td>
+          <td>${{ order.price }} </td>
+          <td><a href="favoriteTaco/{{ order.id }}" class="btn btn-outline-primary">Favorite</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
 
 </body>
 </html>

@@ -50,7 +50,8 @@ def orderHistory(request):
     current_user = User.objects.get(id = request.session['user_id'])
     context = {
         'user' : current_user,
-        'orders': current_user.taco_history.all()
+        'orders': current_user.taco_history.all(),
+        'user_orders' : current_user.tacos_ordered.all()
     }
     return render(request, 'orderHistory.html', context)
 
@@ -104,3 +105,19 @@ def success(request):
         'order' : Order.objects.get(id = request.session['order_id'])
     }
     return render(request, 'success.html', context)
+
+def favoriteTaco(request, taco_id):
+    current_user = User.objects.get(id = request.session['user_id'])
+    taco = Taco.objects.get(id=taco_id)
+    current_user.favorite_taco.add(taco)
+
+    return redirect('/favorites')
+
+def unfavorite(request, taco_id):
+    current_user = User.objects.get(id = request.session['user_id'])
+    taco = Taco.objects.get(id=taco_id)
+    current_user.favorite_taco.remove(taco)
+    return redirect('/favorites')
+
+def reOrder(request):
+    return redirect('/dashboard')

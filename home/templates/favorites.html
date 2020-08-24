@@ -43,6 +43,33 @@
                 </div>
             </nav>
         </div>
+        <div id="content">
+          <h2>Favorite Tacos </h2>
+          <table class="table-dark">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Taco</th>
+                <th>Price</th>
+                <th>Order Again</th>
+                <th>Unfavorite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for favorite in favorites %}
+                <td>{{ favorite.id }}</td>
+                <td>{{ favorite.taco_type }}</td>
+                <td>${{ favorite.price }} </td>
+                <td><a href="reOrder" class="btn btn-outline-danger">Re-Order</a></td>
+                <td><a href="unfavorite/{{ favorite.id }}" class="btn btn-outline-primary">Click</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+
     </div>
 </body>
 </html>

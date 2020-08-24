@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{% static 'dashboard.css' %}">
 </head>
 <body>
-    <div class="container">
+    <div class="container bg-light">
         <div class="jumbotron">
-            <h1>Welcome {{ user.first_name }} {{ user.last_name }}<a href="/logout" class="btn btn-outline-primary" id="logout">Logout</a></h1>
+            <h1 id="header">Welcome {{ user.first_name }} {{ user.last_name }}<a href="/logout" class="btn btn-outline-primary" id="logout">Logout</a></h1>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/dashboard">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
                 </button>
               
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                       <a class="nav-link" href="/myAccount">My Account <span class="sr-only">(current)</span></a>
                     </li>
@@ -43,10 +43,24 @@
                 </div>
             </nav>
         </div>
+        <div id="images">
+            <img src="static/images/baconEgg.jpg" alt="No Image Available">
+            <img src="static/images/potatoEgg.jpg" alt="No Image Available">
+            <img src="static/images/pbec.jpg" alt="No Image Available">
+            <img src="static/images/beanCheese.jpg" alt="No Image Available">
+            <img src="static/images/carneGuisada.jpeg" alt="No Image Available">
+            <img src="static/images/chickenFajita.jpg" alt="No Image Available">
+            <img src="static/images/beefFajita.jpg" alt="No Image Available">
+            <img src="static/images/lengua.jpg" alt="No Image Available">
+            <img src="static/images/barbacoa.jpg" alt="No Image Available">
+            <img src="static/images/chicharron.jpg" alt="No Image Available">
+
+
+        </div>
         <div class="row">
                 <h3>Pick Your Taco's</h3>
             <div>
-              <table>
+              <table class="table-hover table-striped">
                   <thead>
                     <tr>
                       <th>Taco</th>
